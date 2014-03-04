@@ -1,4 +1,4 @@
-require 'orders/order_adjustor'
+require 'orders/order_adjuster'
 
 class OrdersController < ApplicationController
   def create
