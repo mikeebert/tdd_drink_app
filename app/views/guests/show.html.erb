@@ -1,0 +1,25 @@
+<h1>Guests#show</h1>
+
+<%= @guest.first_name %> <%= @guest.last_name %>
+
+<h2>Orders</h2>
+<ul>
+  <% @guest.orders.each do |order| %>
+    <li>
+      <%= order.drink.name %> - <%= order.quantity %>
+      <%= link_to "Add", orders_path(:guest_id => @guest.id, :drink_id => order.drink.id), method: :post %>
+      /
+      <%= link_to "Void", orders_destroy_path(:guest_id => @guest.id, :drink_id => order.drink.id), :method => :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Drinks</h2>
+<ul>
+  <% @drinks.each do |drink| %>
+    <li>
+      <%= drink.name %> -  <%= drink.booze %>
+      <%= button_to "Add", orders_path(:guest_id => @guest.id, :drink_id => drink.id), method: :post %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,7 @@
+<h1>Drinks#index</h1>
+<ul>
+<% @drinks.each do |drink| %>
+  <li><%= drink.name %> -  <%= drink.booze %> (<%= drink.id%>)</li>
+<% end %>
+</ul>
+

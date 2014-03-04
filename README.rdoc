@@ -1,0 +1,8 @@
+A sample app used for teaching an intro to TDD workshop.
+
+Setup instructions:
+- Clone the repo
+- `bundle install`
+- `rake db:migrate`
+- `rake db:seed`
+- confirm the tests run (there are some easter eggs pending): `rspec spec`
