@@ -5,22 +5,43 @@ describe BowlingGame do
 		@game = BowlingGame.new
 	end
 
-  xit 'scores a game of gutter rolls' do
-    20.times { @game.roll(0) }
+  it 'scores a game of gutter rolls' do
+    20.times do 
+      @game.roll(0)
+    end
 
-    expect(@game.score).to eq 0
+    expect(@game.score).to eq(0)
   end
 
-  xit 'scores a game of single pin rolls' do
+  it 'scores a game of single pin rolls' do
+    20.times do
+      @game.roll(1)
+    end
+    
+    expect(@game.score).to eq(20)
   end
 
-  xit 'scores a spare' do
+  it 'scores a spare' do
+    @game.roll(5)
+    @game.roll(5)
+    @game.roll(4)
+    17.times { @game.roll(0) }
+    expect(@game.score).to eq(18)
   end
 
-  xit 'scores a strike' do
+  it 'scores a strike' do
+    @game.roll(10)
+    @game.roll(6)
+    @game.roll(2)
+    17.times { @game.roll(0) }
+    expect(@game.score).to eq(26)
   end
 
-  xit 'scores a perfect game' do
+  it 'scores a perfect game' do
+    12.times do
+      @game.roll(10)
+    end
+    @game.score.should == 300
   end
 
 

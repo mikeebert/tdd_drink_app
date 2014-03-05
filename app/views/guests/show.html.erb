@@ -7,7 +7,9 @@
   <% @guest.orders.each do |order| %>
     <li>
       <%= order.drink.name %> - <%= order.quantity %>
-      <%= link_to "Add", orders_path(:guest_id => @guest.id, :drink_id => order.drink.id), method: :post %>
+      <%= link_to "Add", orders_path(:guest_id => @guest.id,
+                                     :drink_id => order.drink.id),
+                                     method: :post %>
       /
       <%= link_to "Void", orders_destroy_path(:guest_id => @guest.id, :drink_id => order.drink.id), :method => :delete %>
     </li>
